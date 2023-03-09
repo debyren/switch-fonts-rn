@@ -1,11 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import Hola from './src/components/Hola';
+import Chau from './src/components/Chau';
 
 export default function App() {
+const [cambioPant, setCambioPant] = useState(true);
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {cambioPant === true ?
+      <Hola
+        cambioPant={cambioPant}
+        setCambioPant={setCambioPant} /> :
+      <Chau
+      cambioPant={cambioPant}
+      setCambioPant={setCambioPant}/>
+    
+    }  
     </View>
   );
 }
