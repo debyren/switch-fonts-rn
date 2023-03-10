@@ -4,7 +4,7 @@ import color from '../constants/color'
 
 const Chau = ({cambioPant, setCambioPant}) => {
   return (
-    <View>
+    <View style={styles.container}> 
       <Text style={styles.title}>Chau, ya estoy en la 2da pantalla</Text>
       <Button title='Continuar' onPress={ () => setCambioPant(true)} color={color.boton2}  />
     </View>
@@ -14,6 +14,9 @@ const Chau = ({cambioPant, setCambioPant}) => {
 export default Chau
 
 const styles = StyleSheet.create({
+    container:{
+        backgroundColor: '#ffffff'
+    },
     title:{
         fontFamily: 'open-sans',
         padding: 30, 
