@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import Hola from './src/components/Hola';
-import Chau from './src/components/Chau';
+import { StyleSheet, View } from 'react-native';
+
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen'
-import color from './src/constants/color';
+
+import Saludos from './navigation/Saludos';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -30,17 +30,9 @@ if (!fontsLoaded) {
   return null;
 }
   return (
-    <View style={styles.container} onLayout={onLayoutRootView} >
-      {cambioPant === true ?
-      <Hola
-        cambioPant={cambioPant}
-        setCambioPant={setCambioPant} /> :
-      <Chau
-      cambioPant={cambioPant}
-      setCambioPant={setCambioPant}/>
     
-    }  
-    </View>
+     <Saludos style={styles.container} onLayout={onLayoutRootView} />
+    
   );
 }
 
