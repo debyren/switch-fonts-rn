@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     },
     title:{
         fontFamily: 'open-sans',
+        fontSize:20,
         padding: 30, 
     }
 })

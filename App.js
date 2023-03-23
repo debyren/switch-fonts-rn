@@ -1,11 +1,9 @@
 
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-
+import { StyleSheet } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen'
-
-import Saludos from './navigation/Saludos';
+import MainNavigator from './src/navigation/MainNavigation';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -13,35 +11,32 @@ SplashScreen.preventAutoHideAsync();
 export default function App() {
 
   const [fontsLoaded] = useFonts({
-    'open-sans' : require('./assets/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold' : require('./assets/fonts/OpenSans-Bold.ttf'),
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   })
 
-  const onLayoutRootView = React.useCallback(async () => {
+  React.useEffect(() => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 
-
-
-const [cambioPant, setCambioPant] = useState(true);
-if (!fontsLoaded) {
-  return null;
-}
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    
-     <Saludos style={styles.container} onLayout={onLayoutRootView} />
-    
+
+    <MainNavigator />
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   backgroundColor: '#F9DEB6',
+    backgroundColor: '#F9DEB6',
     alignItems: 'center',
     justifyContent: 'center',
-  
+
   },
 });
